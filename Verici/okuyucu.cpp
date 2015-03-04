@@ -18,7 +18,7 @@ int main()
 
     windowsSocketControl();
 
-    he = gethostbyname("127.0.0.1");//Sunucu ip
+    he = gethostbyname("localhost");//Sunucu ip
 
     sock=socket(AF_INET,SOCK_STREAM,IPPROTO_TCP); // Soket olusturuldu.
     socketCreateControl(sock); //Soket hata kontrülü
@@ -35,7 +35,7 @@ int main()
 
     while(1)
     {
-        dataSize=recv(sock,data,1023, 0);
+        dataSize=recv(sock,data,1024, 0);
         data[dataSize] = '/0';
         cout<<data;
 

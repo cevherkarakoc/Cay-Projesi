@@ -16,9 +16,10 @@ int main()
     struct hostent *he;
     struct sockaddr_in server_addr;
 
+
     windowsSocketControl();
 
-    he = gethostbyname("127.0.0.1");//Sunucu ip
+    he = gethostbyname("localhost");//Sunucu ip
 
     sock=socket(AF_INET,SOCK_STREAM,IPPROTO_TCP); // Soket olusturuldu.
     socketCreateControl(sock); //Soket hata kontrülü
