@@ -12,7 +12,7 @@ void socketCreateControl(int sock);
 int main()
 {
     int sock,dataSize;
-    char data[1024],data1[1014];
+    char data[1024];
     struct hostent *he;
     struct sockaddr_in server_addr;
 
@@ -30,6 +30,7 @@ int main()
     server_addr.sin_port=htons(5000);
     memset(&(server_addr.sin_zero), '\0', 8);
     /*==========Adresleme Tamamlandı.==========*/
+
 
     if (connect(sock, (struct sockaddr *)&server_addr,sizeof(struct sockaddr)) == -1)
         cout<<"Bir hata oldu."<<endl;
@@ -54,9 +55,9 @@ void windowsSocketControl()
     WORD mkword=MAKEWORD(2,2);
     int what=WSAStartup(mkword,&version);
     if(what!=0)
-        cout<<"Bu surum desteklenmiyor! - \n"<<WSAGetLastError()<<endl;
+        cout<<"Bu WSA surumu desteklenmiyor! - \n"<<WSAGetLastError()<<endl;
     else
-        cout<<"Iyi, hersey yolunda!\n"<<endl;
+        cout<<"WSA surumu destekleniyor.\n"<<endl;
 }
 
 void socketCreateControl(int sock)

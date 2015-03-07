@@ -35,13 +35,12 @@ int main()
 
     if (bind(sock, (struct sockaddr *)&server_addr, sizeof(struct sockaddr ))== -1)
     {
-        cout<<"Baglantıda hata olustu!.\n";
+        cout<<"Soket ve Sistem baglantısında hata oldu!.\n";
     }
     if (listen(sock, 5) == -1)
     {
-        cout<<"Dinleme basarisiz oldu!.\n";
+        cout<<"Soket dinlemesinde basarisiz oldu!.\n";
     }
-
     cout<<"\nBir baglanti olusmasi bekleniyor...\n";
 
 
@@ -51,7 +50,7 @@ int main()
     {
         gecici = baglananlar;
         if(select(0, &gecici, NULL, NULL, NULL)==-1)
-            cout<<endl<<"Bir hata oldu!"<<endl;
+            cout<<endl<<"Soketler dinlenemiyor!"<<endl;
         i =gecici.fd_array[0];
 
         if(i == sock)
@@ -66,7 +65,7 @@ int main()
             if(gelenData=recv(i,data,sizeof(data),0)<=0)
             {
                 if(gelenData ==0)
-                    cout<<endl<<"Baglanti Koptu!"<<endl;
+                    cout<<endl<<"Karşı taraf ile baglanti koptu!"<<endl;
                 else
                     cout<<endl<<"Baglanti Hatasi!"<<endl;
 
@@ -81,7 +80,7 @@ int main()
                     if(baglananlar.fd_array[j] != sock && baglananlar.fd_array[j] != i)
                     {
                         if(send(baglananlar.fd_array[j],data,sizeof(data),0) <=0){
-                            cout<<endl<<"Gonderme Hatasi"<<endl;
+                            cout<<endl<<"Veri Gonderme Hatasi!"<<endl;
                         }
                     }
                 }
@@ -102,9 +101,9 @@ void windowsSocketControl()
     WORD mkword=MAKEWORD(2,2);
     int what=WSAStartup(mkword,&version);
     if(what!=0)
-        cout<<"Bu surum desteklenmiyor! - \n"<<WSAGetLastError()<<endl;
+        cout<<"Bu WSA surumu desteklenmiyor! - \n"<<WSAGetLastError()<<endl;
     else
-        cout<<"Iyi, hersey yolunda!\n"<<endl;
+        cout<<"WSA surumu destekleniyor.\n"<<endl;
 }
 
 void socketCreateControl(int sock)
