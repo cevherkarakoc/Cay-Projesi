@@ -37,7 +37,7 @@ int main()
     {
         dataSize=recv(sock,data,1024, 0);
         data[dataSize] = '/0';
-        cout<<data;
+        cout<<data<<endl;
 
     }
 

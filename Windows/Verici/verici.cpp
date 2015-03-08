@@ -12,7 +12,7 @@ void socketCreateControl(int sock);
 int main()
 {
     int sock,dataSize;
-    char data[1024], isim[256],mesaj[256];
+    char data[1024], isim[32],mesaj[992];
     struct hostent *he;
     struct sockaddr_in server_addr;
 
@@ -41,6 +41,8 @@ int main()
     while(1)
     {
         cin.getline(data,1024);
+        cout<<data<<endl;
+
         dataSize = sizeof(data);
         send(sock,data,dataSize,0);
 
