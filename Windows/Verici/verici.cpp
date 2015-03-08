@@ -12,7 +12,7 @@ void socketCreateControl(int sock);
 int main()
 {
     int sock,dataSize;
-    char data[1024];
+    char data[1024], isim[256],mesaj[256];
     struct hostent *he;
     struct sockaddr_in server_addr;
 
@@ -31,13 +31,16 @@ int main()
     memset(&(server_addr.sin_zero), '\0', 8);
     /*==========Adresleme Tamamlandı.==========*/
 
+    cout<<"Kullanici adinizi giriniz : ";
+    cin.getline(isim,32);
+
 
     if (connect(sock, (struct sockaddr *)&server_addr,sizeof(struct sockaddr)) == -1)
         cout<<"Bir hata oldu."<<endl;
 
     while(1)
     {
-        data[0]=getchar();
+        cin.getline(data,1024);
         dataSize = sizeof(data);
         send(sock,data,dataSize,0);
 
