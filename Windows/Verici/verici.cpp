@@ -45,9 +45,6 @@ int main()
         strcpy(data,isim);
         strcat(data," : ");
         strcat(data,mesaj);
-        puts(data);
-
-        cout<<data<<endl;
 
         dataSize = sizeof(data);
         send(sock,data,dataSize,0);
