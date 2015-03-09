@@ -84,7 +84,7 @@ int main()
                         }
                     }
                 }
-                cout<<data;
+                cout<<data<<endl;
             }
         }
     }
