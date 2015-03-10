@@ -11,7 +11,7 @@ void socketCreateControl(int sock);
 
 int main()
 {
-    int sock,dataSize;
+    int sock,dataSize,port;
     char data[1024], adres[64];
     struct hostent *he;
     struct sockaddr_in server_addr;
@@ -25,10 +25,15 @@ int main()
     sock=socket(AF_INET,SOCK_STREAM,IPPROTO_TCP); // Soket olusturuldu.
     socketCreateControl(sock); //Soket hata kontrülü
 
+    do{
+    cout<<"\nBaglanmak istediginiz port numarasini giriniz(1024-12345) : ";
+    cin>>port;
+    }while(port<1024 || port>12345);
+
     /*==========Adresleme Başlıyor.==========*/
     server_addr.sin_family=AF_INET;
     server_addr.sin_addr=*((struct in_addr *)he->h_addr);
-    server_addr.sin_port=htons(5000);
+    server_addr.sin_port=htons(port);
     memset(&(server_addr.sin_zero), '\0', 8);
     /*==========Adresleme Tamamlandı.==========*/
 

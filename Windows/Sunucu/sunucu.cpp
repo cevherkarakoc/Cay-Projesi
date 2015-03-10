@@ -12,7 +12,7 @@ void socketCreateControl(int sock);
 
 int main()
 {
-    int sin_size,sock,connecter,i,j,gelenData;
+    int sin_size,sock,connecter,i,j,gelenData, port;
     char data[1024];
     fd_set   baglananlar,gecici;
     struct sockaddr_in server_addr,client_addr;
@@ -26,12 +26,18 @@ int main()
     sock=socket(AF_INET,SOCK_STREAM,IPPROTO_TCP); // Soket olusturuldu.
     socketCreateControl(sock); //Soket hata kontrülü
 
+    do{
+    cout<<"\nKullanmak istediginiz port numarasini giriniz(1024-12345) : ";
+    cin>>port;
+    }while(port<1024 || port>12345);
+
     /*==========Adresleme Başlıyor.==========*/
     server_addr.sin_family=AF_INET;
     server_addr.sin_addr.s_addr=INADDR_ANY;
-    server_addr.sin_port=htons(5000);
+    server_addr.sin_port=htons(port);
     memset(&(server_addr.sin_zero), '\0', 8);
     /*==========Adresleme Tamamlandı.==========*/
+
 
     if (bind(sock, (struct sockaddr *)&server_addr, sizeof(struct sockaddr ))== -1)
     {
