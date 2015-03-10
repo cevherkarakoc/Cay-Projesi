@@ -12,13 +12,15 @@ void socketCreateControl(int sock);
 int main()
 {
     int sock,dataSize;
-    char data[1024];
+    char data[1024], adres[64];
     struct hostent *he;
     struct sockaddr_in server_addr;
 
     windowsSocketControl();
 
-    he = gethostbyname("localhost");//Sunucu ip
+    cout<<"IP giriniz : ";
+    cin.getline(adres,64);
+    he = gethostbyname(adres);//Sunucu ip
 
     sock=socket(AF_INET,SOCK_STREAM,IPPROTO_TCP); // Soket olusturuldu.
     socketCreateControl(sock); //Soket hata kontrülü
