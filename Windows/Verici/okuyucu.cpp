@@ -21,16 +21,13 @@ int main(int argc, char *argv[])
     struct sockaddr_in server_addr;
 
     windowsSocketControl();
-    cout<<argv[0]<<endl;
-    cout<<argv[1]<<endl;
-    cout<<argv[2]<<endl;
-    //cout<<argv[3]<<endl;
 
     if(argc==3){
         he = gethostbyname(argv[1]);
         port= atoi(argv[2]);
         //sock= atoi(argv[3]);
     }else{
+        cout<<"Vericiyi çalıştırınız.\n";
         return 0;
     }
 
