@@ -3,16 +3,27 @@
 #include <cstdio>
 #include <iostream>
 #include <winsock2.h>
+#include <windows.h>
+#include <sstream>
+#include <stdlib.h>
 
 using namespace std;
 
 void windowsSocketControl();
 void socketCreateControl(int sock);
+string IntToString ( int sayi )
+{
+  ostringstream oss;
+
+  oss<< sayi;
+  return oss.str();
+}
 
 int main()
 {
     int sock,dataSize,port;
-    char data[1024], isim[32],mesaj[989], adres[64],bos[1];
+    char data[1024], isim[32],mesaj[989], adres[64],bos[1],okuyucu[1024],portS[32],*sockS;
+    string tmp_str;
     struct hostent *he;
     struct sockaddr_in server_addr;
 
@@ -27,8 +38,10 @@ int main()
     socketCreateControl(sock); //Soket hata kontrülü
     do{
     cout<<"\Baglanmak istediginiz port numarasini giriniz(1024-12345) : ";
-    cin>>port;
+    cin>>portS;
+    port = atoi(portS);
     }while(port<1024 || port>12345);
+
 
     /*==========Adresleme Başlıyor.==========*/
     server_addr.sin_family=AF_INET;
@@ -41,9 +54,20 @@ int main()
     cout<<"Kullanici adinizi giriniz : ";
     cin.getline(isim,32);
 
-
     if (connect(sock, (struct sockaddr *)&server_addr,sizeof(struct sockaddr)) == -1)
         cout<<"Bir hata oldu."<<endl;
+
+    //tmp_str = IntToString(sock);
+    //sockS = (char*)tmp_str.c_str();
+    strcpy(okuyucu,"start ./okuyucu.exe ");
+    strcat(okuyucu," ");
+    strcat(okuyucu,adres);
+    strcat(okuyucu," ");
+    strcat(okuyucu,portS);
+    //strcat(okuyucu," ");
+    //strcat(okuyucu,sockS);
+
+    system(okuyucu);
 
     while(1)
     {

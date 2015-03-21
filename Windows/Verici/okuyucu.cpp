@@ -3,32 +3,48 @@
 #include <cstdio>
 #include <iostream>
 #include <winsock2.h>
+#include<stdio.h>
 
 using namespace std;
 
 void windowsSocketControl();
 void socketCreateControl(int sock);
 
-int main()
+
+int main(int argc, char *argv[])
 {
+
+
     int sock,dataSize,port;
     char data[1024], adres[64];
     struct hostent *he;
     struct sockaddr_in server_addr;
 
     windowsSocketControl();
+    cout<<argv[0]<<endl;
+    cout<<argv[1]<<endl;
+    cout<<argv[2]<<endl;
+    //cout<<argv[3]<<endl;
 
-    cout<<"IP giriniz : ";
+    if(argc==3){
+        he = gethostbyname(argv[1]);
+        port= atoi(argv[2]);
+        //sock= atoi(argv[3]);
+    }else{
+        return 0;
+    }
+
+    /*cout<<"IP giriniz : ";
     cin.getline(adres,64);
-    he = gethostbyname(adres);//Sunucu ip
+    he = gethostbyname(adres);//Sunucu ip*/
 
-    sock=socket(AF_INET,SOCK_STREAM,IPPROTO_TCP); // Soket olusturuldu.
+    sock=socket(AF_INET,SOCK_STREAM,IPPROTO_TCP); // Soket olusturuldu.*/
     socketCreateControl(sock); //Soket hata kontrülü
 
-    do{
+    /*do{
     cout<<"\nBaglanmak istediginiz port numarasini giriniz(1024-12345) : ";
     cin>>port;
-    }while(port<1024 || port>12345);
+    }while(port<1024 || port>12345);*/
 
     /*==========Adresleme Başlıyor.==========*/
     server_addr.sin_family=AF_INET;
@@ -38,12 +54,13 @@ int main()
     /*==========Adresleme Tamamlandı.==========*/
 
     if (connect(sock, (struct sockaddr *)&server_addr,sizeof(struct sockaddr)) == -1)
-        cout<<"Sunucuya baglanılamadı."<<endl;
+        cout<<"Sunucuya baglanilamadi."<<endl;
 
     while(1)
     {
         dataSize=recv(sock,data,1024, 0);
         data[dataSize] = '/0';
+        cout<<"\a";
         cout<<data<<endl;
 
     }

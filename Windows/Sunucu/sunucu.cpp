@@ -43,7 +43,7 @@ int main()
     {
         cout<<"Soket ve Sistem baglantısında hata oldu!.\n";
     }
-    if (listen(sock, 5) == -1)
+    if (listen(sock, 20) == -1)
     {
         cout<<"Soket dinlemesinde basarisiz oldu!.\n";
     }
