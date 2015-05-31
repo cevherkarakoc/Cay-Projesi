@@ -68,7 +68,8 @@ int main()
         }
         else
         {
-            if(gelenData=recv(i,data,sizeof(data),0)<=0)
+            gelenData=recv(i,data,sizeof(data),0);
+            if(gelenData<=0)
             {
                 if(gelenData ==0)
                     cout<<endl<<"Karşı taraf ile baglanti koptu!"<<endl;
@@ -85,7 +86,7 @@ int main()
                 {
                     if(baglananlar.fd_array[j] != sock && baglananlar.fd_array[j] != i)
                     {
-                        if(send(baglananlar.fd_array[j],data,sizeof(data),0) <=0){
+                        if(send(baglananlar.fd_array[j],data,gelenData,0) <=0){
                             cout<<endl<<"Veri Gonderme Hatasi!"<<endl;
                         }
                     }
