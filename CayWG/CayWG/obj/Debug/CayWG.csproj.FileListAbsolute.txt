@@ -1,0 +1,16 @@
+c:\users\cevher\documents\visual studio 2013\Projects\CayWG\CayWG\bin\Debug\CayWG.exe.config
+C:\Users\Cevher\documents\visual studio 2013\Projects\CayWG\CayWG\bin\Debug\CayWG.exe
+C:\Users\Cevher\documents\visual studio 2013\Projects\CayWG\CayWG\bin\Debug\CayWG.pdb
+C:\Users\Cevher\documents\visual studio 2013\Projects\CayWG\CayWG\obj\Debug\CayWG.csprojResolveAssemblyReference.cache
+C:\Users\Cevher\documents\visual studio 2013\Projects\CayWG\CayWG\obj\Debug\MainWindow.baml
+C:\Users\Cevher\documents\visual studio 2013\Projects\CayWG\CayWG\obj\Debug\MainWindow.g.cs
+C:\Users\Cevher\documents\visual studio 2013\Projects\CayWG\CayWG\obj\Debug\App.g.cs
+C:\Users\Cevher\documents\visual studio 2013\Projects\CayWG\CayWG\obj\Debug\CayWG_MarkupCompile.cache
+C:\Users\Cevher\documents\visual studio 2013\Projects\CayWG\CayWG\obj\Debug\CayWG.g.resources
+C:\Users\Cevher\documents\visual studio 2013\Projects\CayWG\CayWG\obj\Debug\CayWG.Properties.Resources.resources
+C:\Users\Cevher\documents\visual studio 2013\Projects\CayWG\CayWG\obj\Debug\CayWG.csproj.GenerateResource.Cache
+C:\Users\Cevher\documents\visual studio 2013\Projects\CayWG\CayWG\obj\Debug\CayWG.exe
+C:\Users\Cevher\documents\visual studio 2013\Projects\CayWG\CayWG\obj\Debug\CayWG.pdb
+C:\Users\Cevher\Documents\Cay\Cay Projesi\Cay-Projesi\CayWG\CayWG\bin\Debug\CayWG.exe.config
+C:\Users\Cevher\Documents\Cay\Cay Projesi\Cay-Projesi\CayWG\CayWG\obj\Debug\CayWG.exe
+C:\Users\Cevher\Documents\Cay\Cay Projesi\Cay-Projesi\CayWG\CayWG\obj\Debug\CayWG.pdb
