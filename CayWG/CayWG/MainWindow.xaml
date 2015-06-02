@@ -11,7 +11,7 @@
         <TextBox x:Name="textBox_ip" HorizontalAlignment="Left" Height="38" Margin="24,19,0,0" TextWrapping="Wrap" Text="127.0.0.1" VerticalAlignment="Top" Width="125" FontSize="20"/>
         <TextBox x:Name="textBox_port" HorizontalAlignment="Left" Height="38" Margin="181,19,0,0" TextWrapping="Wrap" Text="4444" VerticalAlignment="Top" Width="80" FontSize="22"/>
         <TextBox x:Name="textBox_ad" HorizontalAlignment="Left" Height="38" Margin="294,19,0,0" TextWrapping="Wrap" Text="Kullanıcı Adı" VerticalAlignment="Top" Width="169" FontSize="24"/>
-        <TextBox x:Name="textBox_mesaj" HorizontalAlignment="Left" Height="73" Margin="24,461,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="598" IsEnabled="False"/>
+        <TextBox x:Name="textBox_mesaj" HorizontalAlignment="Left" Height="73" Margin="24,461,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="598" IsEnabled="False" KeyDown="textBox_mesaj_KeyDown"/>
         <Button x:Name="btn_gonder" Content="Gönder" HorizontalAlignment="Left" Margin="666,461,0,0" VerticalAlignment="Top" Width="144" Height="73" IsEnabled="False" FontSize="24" Click="btn_gonder_Click"/>
         <RichTextBox x:Name="richTextBox_mesajlar" HorizontalAlignment="Left" Height="336" Margin="24,85,0,0" VerticalAlignment="Top" Width="598" Cursor="SizeAll" FontSize="16" ForceCursor="True" TextChanged="richTextBox_mesajlar_TextChanged">
             <FlowDocument>

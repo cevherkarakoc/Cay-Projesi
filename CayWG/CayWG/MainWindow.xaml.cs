@@ -107,6 +107,21 @@ namespace CayWG
             }
         }
 
+        public void mesajGonder()
+        {
+            if (textBox_mesaj.Text == "")
+            {
+                return;
+            }
+            else
+            {
+                writer = new StreamWriter(nStream);
+                writer.WriteLine(textBox_mesaj.Text);
+                writer.Flush();
+                richTextBox_mesajlar.AppendText(Environment.NewLine + textBox_mesaj.Text);
+                textBox_mesaj.Text = "";
+            }
+        }
 
         private void btn_baglan_Click(object sender, RoutedEventArgs e)
         {
@@ -128,19 +143,17 @@ namespace CayWG
 
         private void btn_gonder_Click(object sender, RoutedEventArgs e)
         {
-            if (textBox_mesaj.Text == "")
+            mesajGonder();
+        }
+
+        private void textBox_mesaj_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
             {
-                return;
-            }
-            else
-            {
-                writer = new StreamWriter(nStream);
-                writer.WriteLine(textBox_mesaj.Text);
-                writer.Flush();
-                richTextBox_mesajlar.AppendText(Environment.NewLine + textBox_mesaj.Text);
-                textBox_mesaj.Text = "";
+                mesajGonder();
             }
         }
+
 
         private void richTextBox_mesajlar_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -151,6 +164,9 @@ namespace CayWG
         {
             baglantiKes();
         }
+
+
+        
 
 
     }
