@@ -76,8 +76,9 @@ int main()
         strcpy(data,isim);
         strcat(data," : ");
         strcat(data,mesaj);
+        strcat(data,"\n");
 
-        dataSize = sizeof(data);
+        dataSize = strlen(data);
         send(sock,data,dataSize,0);
 
 
