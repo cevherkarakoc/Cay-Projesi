@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
     while(1)
     {
         dataSize=recv(sock,data,1024, 0);
-        data[dataSize] = '/0';
+        data[dataSize] = '\0';
         cout<<"\a";
         cout<<data;
 
