@@ -79,7 +79,6 @@ int main()
         strcat(data,"\n");
 
         dataSize = strlen(data);
-        //cout<<dataSize<<endl;
         send(sock,data,dataSize,0);
 
 
