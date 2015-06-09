@@ -4,6 +4,7 @@
 #include <iostream>
 #include <winsock2.h>
 #include<stdio.h>
+#include "../datatip.h";
 
 using namespace std;
 
@@ -16,7 +17,7 @@ int main(int argc, char *argv[])
 
 
     int sock,dataSize,port;
-    char data[1024], adres[64];
+    char data[1024],isim[32],receiver[32] ,mesaj[959], adres[64];
     struct hostent *he;
     struct sockaddr_in server_addr;
 
@@ -59,9 +60,28 @@ int main(int argc, char *argv[])
     while(1)
     {
         dataSize=recv(sock,data,1024, 0);
-        data[dataSize] = '\0';
+        if(data[0]='m'){
+            int j=3;
+            for(int i=0;i<(int)data[1];i++){
+                isim[i]=data[j];
+                j++;
+            }
+            isim[(int)data[1]]='\0';
+            for(int i=0;i<(int)data[2];i++){
+                receiver[i]=data[j];
+                j++;
+            }
+            receiver[(int)data[2]]='\0';
+            for(int i=0;i<dataSize;i++){
+                mesaj[i]=data[j];
+                j++;
+            }
+
+            cout<<isim<<" : "<<mesaj;
+
+        }
+
         cout<<"\a";
-        cout<<data;
 
     }
 

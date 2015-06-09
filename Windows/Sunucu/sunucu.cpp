@@ -3,6 +3,7 @@
 #include <cstdio>
 #include <iostream>
 #include <winsock2.h>
+#include "../datatip.h";
 
 using namespace std;
 
@@ -16,6 +17,8 @@ int main()
     char data[1024];
     fd_set   baglananlar,gecici;
     struct sockaddr_in server_addr,client_addr;
+
+
 
     windowsSocketControl(); //WSA sürüm kontrolü ve hata denetimi
 
@@ -52,6 +55,8 @@ int main()
 
     FD_SET(sock, &baglananlar);
 
+    TextMessage textMessage();
+
     while(1)
     {
         gecici = baglananlar;
@@ -81,6 +86,7 @@ int main()
             }
             else
             {
+                //textMessage.setMessage()
 
                 for(j=0; j<baglananlar.fd_count; j++)
                 {

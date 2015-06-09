@@ -6,6 +6,7 @@
 #include <windows.h>
 #include <sstream>
 #include <stdlib.h>
+#include "../datatip.h";
 
 using namespace std;
 
@@ -22,7 +23,7 @@ string IntToString ( int sayi )
 int main()
 {
     int sock,dataSize,port;
-    char data[1024], isim[32],mesaj[989], adres[64],bos[1],okuyucu[1024],portS[32],*sockS;
+    char data[1024], isim[32],mesaj[969], receiver[32], adres[64],bos[1],okuyucu[1024],portS[32],*sockS;
     string tmp_str;
     struct hostent *he;
     struct sockaddr_in server_addr;
@@ -37,7 +38,7 @@ int main()
     sock=socket(AF_INET,SOCK_STREAM,IPPROTO_TCP); // Soket olusturuldu.
     socketCreateControl(sock); //Soket hata kontrülü
     do{
-    cout<<"\Baglanmak istediginiz port numarasini giriniz(1024-12345) : ";
+    cout<<"Baglanmak istediginiz port numarasini giriniz(1024-12345) : ";
     cin>>portS;
     port = atoi(portS);
     }while(port<1024 || port>12345);
@@ -71,15 +72,11 @@ int main()
 
     while(1)
     {
-        cin.getline(mesaj,989);
+        cin.getline(mesaj,959);
+        strcpy(receiver,"herkes");
+        TextMessage textMessage(isim,receiver,mesaj);
 
-        strcpy(data,isim);
-        strcat(data," : ");
-        strcat(data,mesaj);
-        strcat(data,"\n");
-
-        dataSize = strlen(data);
-        send(sock,data,dataSize,0);
+        send(sock,textMessage.data,textMessage.len,0);
 
 
     }
