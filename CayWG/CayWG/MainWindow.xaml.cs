@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Net.Sockets;
 
+
 namespace CayWG
 {
     /// <summary>
@@ -27,9 +28,11 @@ namespace CayWG
         NetworkStream nStream;
         StreamReader reader;
         StreamWriter writer;
+        TextMessage textMessage;
+        string username;
         bool IsConnect = false;
         public delegate void rictTextBoxDegistir(string text);
- 
+        
 
         public MainWindow()
         {
@@ -43,6 +46,13 @@ namespace CayWG
             try
             {
                 tcpClient = new TcpClient(textBox_ip.Text, Convert.ToInt16(textBox_port.Text));
+
+                username = textBox_ad.Text;
+                nStream = tcpClient.GetStream();
+                writer = new StreamWriter(nStream);
+                writer.WriteLine("j"+username);
+                writer.Flush();
+
                 th = new Thread(new ThreadStart(oku));
                 th.Start();
 
@@ -65,7 +75,7 @@ namespace CayWG
 
         public void oku()
         {
-            nStream = tcpClient.GetStream();
+            
             reader = new StreamReader(nStream);
             while (true)
             {
@@ -73,8 +83,8 @@ namespace CayWG
                 {
                     string yazi = reader.ReadLine();
                     //MessageBox.Show(yazi);
-                    
-                    yaz(yazi);
+                    textMessage = new TextMessage();
+                    yaz(textMessage.readData(yazi));
                 }
                 catch (Exception)
                 {
@@ -115,10 +125,11 @@ namespace CayWG
             }
             else
             {
+                textMessage = new TextMessage(username, "all", textBox_mesaj.Text);
                 writer = new StreamWriter(nStream);
-                writer.WriteLine(textBox_mesaj.Text);
+                writer.WriteLine(textMessage.data);
                 writer.Flush();
-                richTextBox_mesajlar.AppendText(Environment.NewLine + textBox_mesaj.Text);
+                richTextBox_mesajlar.AppendText(Environment.NewLine +username+" : "+ textBox_mesaj.Text);
                 textBox_mesaj.Text = "";
             }
         }

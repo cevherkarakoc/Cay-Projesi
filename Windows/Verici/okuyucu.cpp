@@ -57,6 +57,11 @@ int main(int argc, char *argv[])
     if (connect(sock, (struct sockaddr *)&server_addr,sizeof(struct sockaddr)) == -1)
         cout<<"Sunucuya baglanilamadi."<<endl;
 
+    strcpy(data,"j");
+    strcat(data,isim);
+    data[strlen(isim)+1]='\0';
+    send(sock,data,strlen(data),0);
+
     while(1)
     {
         dataSize=recv(sock,data,1024, 0);

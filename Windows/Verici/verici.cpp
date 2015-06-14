@@ -58,6 +58,11 @@ int main()
     if (connect(sock, (struct sockaddr *)&server_addr,sizeof(struct sockaddr)) == -1)
         cout<<"Bir hata oldu."<<endl;
 
+    strcpy(data,"j");
+    strcat(data,isim);
+    data[strlen(isim)+1]='\0';
+    send(sock,data,strlen(data),0);
+
     //tmp_str = IntToString(sock);
     //sockS = (char*)tmp_str.c_str();
     strcpy(okuyucu,"start ./okuyucu.exe ");
