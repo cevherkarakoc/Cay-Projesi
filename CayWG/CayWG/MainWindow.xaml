@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Cay WG" Height="600" Width="850"
         MinHeight="525" MinWidth="741"
-        Closing="Window_Closing">
+        Closing="Window_Closing" Visibility="Visible">
 
 
     <Grid>
@@ -27,8 +27,8 @@
         <TextBox x:Name="textBox_ad" Height="28" Margin="22,19,22,0" TextWrapping="Wrap" Text="Kullanıcı Adı" VerticalAlignment="Top" FontSize="16" Grid.Column="3" TextAlignment="Center"/>
         <TextBox x:Name="textBox_mesaj" Height="87" Margin="22,0,22,35" TextWrapping="Wrap" IsEnabled="False" KeyDown="textBox_mesaj_KeyDown" Grid.ColumnSpan="5" Grid.Row="2" VerticalAlignment="Bottom"/>
         <Button x:Name="btn_gonder" Content="Gönder" Margin="22,0,22,35" Height="87" IsEnabled="False" FontSize="24" Click="btn_gonder_Click" Grid.Column="5" Grid.Row="2" VerticalAlignment="Bottom"/>
-        <ScrollViewer Margin="22,16,22,22" Grid.ColumnSpan="4" Grid.Row="1" Grid.Column="1" >
-            <RichTextBox x:Name="richTextBox_mesajlar" Cursor="SizeAll" FontSize="16" ForceCursor="True" TextChanged="richTextBox_mesajlar_TextChanged">
+        <ScrollViewer x:Name="scroll_mesajlar" Margin="22,16,22,22" Grid.ColumnSpan="4" Grid.Row="1" Grid.Column="1" >
+            <RichTextBox x:Name="richTextBox_mesajlar" Cursor="Arrow" FontSize="16" ForceCursor="True" TextChanged="richTextBox_mesajlar_TextChanged" Background="White" BorderThickness="0" Margin="0">
                 <FlowDocument>
                     <Paragraph>
                         <Run Text=""/>

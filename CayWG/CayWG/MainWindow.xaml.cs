@@ -143,6 +143,7 @@ namespace CayWG
         private void btn_baglantiKes_Click(object sender, RoutedEventArgs e)
         {
             baglantiKes();
+            richTextBox_mesajlar.Document.Blocks.Clear();
             textBox_ad.IsEnabled = true;
             textBox_ip.IsEnabled = true;
             textBox_port.IsEnabled = true;
@@ -168,7 +169,7 @@ namespace CayWG
 
         private void richTextBox_mesajlar_TextChanged(object sender, TextChangedEventArgs e)
         {
-            richTextBox_mesajlar.ScrollToEnd();
+            scroll_mesajlar.ScrollToEnd();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
