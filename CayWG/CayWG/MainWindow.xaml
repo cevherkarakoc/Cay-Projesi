@@ -20,7 +20,7 @@
             <ColumnDefinition Width="148*"/>
             <ColumnDefinition Width="182*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="btn_baglan" Content="Bağlan" Margin="24,17,24,0" VerticalAlignment="Top" Height="38" RenderTransformOrigin="0.446,1.389" Click="btn_baglan_Click" FontSize="18" Grid.Column="4"/>
+        <Button x:Name="btn_baglan" Content="Bağlan" Margin="24,17,24,0" VerticalAlignment="Top" Height="38" RenderTransformOrigin="0.446,1.389" Click="btn_baglan_Click" FontSize="18" Grid.Column="4" Background="#EEEEEEEE" BorderThickness="2"/>
         <Button x:Name="btn_baglantiKes" Content="Bağlantıyı Kes" Margin="22,15,22,0" VerticalAlignment="Top" Height="38" FontSize="18" IsEnabled="False" Click="btn_baglantiKes_Click" Grid.Column="5"/>
         <TextBox x:Name="textBox_ip" Height="28" Margin="22,19,22,0" TextWrapping="Wrap" Text="127.0.0.1" VerticalAlignment="Top" FontSize="16" Grid.ColumnSpan="2" TextAlignment="Center"/>
         <TextBox x:Name="textBox_port" Height="28" Margin="32,19,33,0" TextWrapping="Wrap" Text="4444" VerticalAlignment="Top" FontSize="16" Grid.Column="2" TextAlignment="Center"/>

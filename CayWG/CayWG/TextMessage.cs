@@ -8,7 +8,7 @@ namespace CayWG
 {
     class TextMessage
     {
-        char m;
+        char m='m';
         char u;
         char r;
         string username;
@@ -34,7 +34,6 @@ namespace CayWG
             receivername = receiver;
             message = mes;
 
-            m = 'm';
             u = (char)username.Length;
             r = (char)receiver.Length;
 
